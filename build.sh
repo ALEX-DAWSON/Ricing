@@ -4,9 +4,11 @@ release_file=/etc/os-release
 
 wallpaper_folder=~/Pictures/Wallpapers
 sway_folder=~/.config/sway
+hypr_folder=~/.config/hypr
 
 this_wallpaper_folder=./Wallpapers
 this_sway_folder=./sway
+this_hypr_folder=./hyprland
 
 wallpaper () {
     if [ ! -d $wallpaper_folder ]
@@ -43,4 +45,28 @@ sway() {
     fi
 }
 
-wallpaper && sway
+hypr() {
+    if [ -n $(pacman -Q | grep "hyprland") ]
+    then
+        read -p "Do you want to install hyprland? [y/N] : " input
+        if [ $input = y ]
+        then
+            yes | sudo pacman -S hyprland
+            mkdir $hypr_folder
+            cp $this_hypr_folder/* $hypr_folder
+            echo Made directory $hypr_folder and copied contents of $this_hypr_folder to it
+        else 
+            :
+        fi
+    elif [ ! -d $hypr_folder ]
+    then
+        mkdir $hypr_folder
+        cp $this_hypr_folder/* $hypr_folder
+        echo Made directory $hypr_folder and copied contents of $this_hypr_folder to it
+    else
+        cp $this_hypr_folder/* $hypr_folder
+        echo Copied contents of $this_hypr_folder to $hypr_folder
+    fi
+}
+
+wallpaper && hypr
