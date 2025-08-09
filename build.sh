@@ -15,9 +15,10 @@ wallpaper () {
     then
         mkdir $wallpaper_folder &&
         cp ./Wallpapers/* $wallpaper_folder
-        echo Copied wallpapers
+        echo Made $wallpaper_folder and copied Wallpapers
     else
-        echo There is already a wallpaper folder
+	cp ./Wallpapers/* $wallpaper_folder
+        echo Copied Wallpapers
     fi
 }
 
