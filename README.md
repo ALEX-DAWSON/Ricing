@@ -1,2 +1,2 @@
 # Ricing
-My ricing configs for mint and endevour and maybe more
+My ricing configs for arch based systems
