@@ -24,30 +24,6 @@ wallpaper () {
     fi
 }
 
-sway() {
-    if [ -n $(pacman -Q | grep "sway") ]
-    then
-        read -p "Do you want to install Sway? [y/N] : " input
-        if [ $input = y ]
-        then
-            yes | sudo pacman -S sway
-            mkdir $sway_folder
-            cp $this_sway_folder/* $sway_folder
-            echo Made directory $sway_folder and copied contents of $this_sway_folder to it
-        else 
-            :
-        fi
-    elif [ ! -d $sway_folder ]
-    then
-        mkdir $sway_folder
-        cp $this_sway_folder/* $sway_folder
-        echo Made directory $sway_folder and copied contents of $this_sway_folder to it
-    else
-        cp $this_sway_folder/* $sway_folder
-        echo Copied contents of $this_sway_folder to $sway_folder
-    fi
-}
-
 hypr() {
     if [ -n $(pacman -Q | grep "hyprland") ]
     then
