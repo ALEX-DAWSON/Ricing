@@ -35,15 +35,15 @@
   	},
 
 	"custom/applauncher": {
-    		"format": "〇",
+    		"format": "󰣇",
     		"on-click": "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15",
     		"tooltip": false
  	},
 
 	"network": {
-   		 "format-wifi": " {bandwidthDownBits}",
-   		 "format-ethernet": " {bandwidthDownBits}",
-   		 "format-disconnected": "󰤮 No Network",
+   		 "format-wifi": "󰖩 {bandwidthDownBits}",
+   		 "format-ethernet": "󰈀 {bandwidthDownBits}",
+   		 "format-disconnected": "󰪎 No Network",
    		 "interval": 5,
    		 "tooltip": false
  	 }
