@@ -12,6 +12,38 @@ this_sway_folder=./sway
 this_hypr_folder=./hyprland
 this_waybar_folder=./waybar
 
+
+login() {
+    read -p "What is your current login manager? [ENTER = gdm]: " old_login_manager 
+    if [ "$old_login_manager" == "" ]
+    then
+        old_login_manager=gdm
+    fi
+    echo "You selected $old_login_manager" &&
+    sleep 1 &&
+    read -p "What do you want your new login manager to be? [ENTER = ly]: " new_login_manager 
+    if [ "$new_login_manager" == "" ]
+    then
+        new_login_manager=ly
+    fi
+    echo "You selected $new_login_manager" &&
+    sleep 1 &&
+    read -p "Are you sure you want to replace $old_login_manager with $new_login_manager? [y/N]: " input
+    case $input in
+        "y" | "Y" |"yes" | "Yes" | "YES")
+            echo "Installing $new_login_manager. Input your password once prompted. Please don't close this terminal until I'm done pls. Thx" &&
+            sleep 3 &&
+            sudo pacman -S $new_login_manager &&
+            sudo systemctl disable $old_login_manager &&
+            sudo systemctl enable $new_login_manager
+        ;;
+        *) 
+            echo "Aight, Fam. We're good. No changes were made."
+            return
+        ;;
+    esac
+}
+
 wallpaper () {
     if [ ! -d $wallpaper_folder ]
     then
@@ -25,19 +57,7 @@ wallpaper () {
 }
 
 hypr() {
-    if [ -n $(pacman -Q | grep "hyprland") ]
-    then
-        read -p "Do you want to install hyprland? [y/N] : " input
-        if [ $input = y ]
-        then
-            yes | sudo pacman -S hyprland waybar hyprpaper
-            mkdir $hypr_folder
-            cp $this_hypr_folder/* $hypr_folder
-            echo Made directory $hypr_folder and copied contents of $this_hypr_folder to it
-        else 
-            :
-        fi
-    elif [ ! -d $hypr_folder ]
+    if [ ! -d $hypr_folder ]
     then
         mkdir $hypr_folder
         cp $this_hypr_folder/* $hypr_folder
@@ -60,4 +80,14 @@ waybar() {
 	fi
 }
 
-wallpaper && hypr && waybar
+case $1 in
+    test) 
+        login 
+    ;;
+    *) 
+        wallpaper && 
+        hypr && 
+        waybar &&
+        bash aur-helper.sh 
+    ;;
+esac

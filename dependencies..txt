@@ -1,0 +1,8 @@
+hyprland
+hyprpaper
+waybar
+wofi
+dunst
+ly
+nemo
+nvim
