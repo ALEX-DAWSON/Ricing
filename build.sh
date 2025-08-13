@@ -3,12 +3,10 @@
 release_file=/etc/os-release
 
 wallpaper_folder=~/Pictures/Wallpapers
-sway_folder=~/.config/sway
 hypr_folder=~/.config/hypr
 waybar_folder=~/.config/waybar
 
 this_wallpaper_folder=./Wallpapers
-this_sway_folder=./sway
 this_hypr_folder=./hyprland
 this_waybar_folder=./waybar
 
@@ -87,7 +85,7 @@ case $1 in
     *) 
         wallpaper && 
         hypr && 
-        waybar &&
-        bash aur-helper.sh 
+        waybar
+        #bash aur-helper.sh 
     ;;
 esac
