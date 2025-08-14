@@ -5,10 +5,12 @@ release_file=/etc/os-release
 wallpaper_folder=~/Pictures/Wallpapers
 hypr_folder=~/.config/hypr
 waybar_folder=~/.config/waybar
+wofi_folder=~/.config/wofi
 
 this_wallpaper_folder=./Wallpapers
 this_hypr_folder=./hyprland
 this_waybar_folder=./waybar
+this_wofi_folder=./wofi
 
 
 login() {
@@ -78,14 +80,27 @@ waybar() {
 	fi
 }
 
+wofi() {
+    if [ ! -d $wofi_folder ]
+	then
+		mkdir $wofi_folder
+		cp $this_wofi_folder/* $wofi_folder
+		echo Made $wofi_folder and copied $this_wofi_folder
+	else
+		cp $this_wofi_folder/* $wofi_folder
+		echo Copied $this_wofi_folder to $wofi_folder
+	fi
+}
+
 case $1 in
-    test) 
+    login) 
         login 
     ;;
     *) 
         wallpaper && 
         hypr && 
-        waybar
+        waybar &&
+        wofi
         #bash aur-helper.sh 
     ;;
 esac
