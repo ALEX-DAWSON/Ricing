@@ -10,7 +10,7 @@
 
 
 	"modules-left": [
-		"custom/applauncher",
+		"custom/launcher",
 		"hyprland/workspaces"
 	],
 
@@ -34,7 +34,7 @@
   		 "tooltip": false
   	},
 
-	"custom/applauncher": {
+	"custom/launcher": {
     		"format": "󰣇",
     		"on-click": "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15",
     		"tooltip": false

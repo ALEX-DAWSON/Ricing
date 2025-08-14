@@ -1,8 +1,8 @@
 hyprland
 hyprpaper
+hyprpolkitagent
 waybar
 wofi
 dunst
-ly
 nemo
-nvim
+neovim

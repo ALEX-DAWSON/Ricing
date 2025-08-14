@@ -1,0 +1,19 @@
+@import url("colours.css");
+
+* {
+    font-family: Pangolin, sans-serif;
+    font-size: 14px;
+    background: transparent;
+}
+
+#custom-launcher,
+#workspaces,
+#clock,
+#network,
+#tray,
+#pulseaudio {
+    border-radius: 8px;
+    padding: 4px;
+    color: @color7;
+    background-color: @background;
+}
