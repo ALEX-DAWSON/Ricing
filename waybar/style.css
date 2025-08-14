@@ -2,7 +2,7 @@
 
 * {
     font-family: Pangolin, sans-serif;
-    font-size: 14px;
+    font-size: 18px;
     background: transparent;
 }
 
@@ -16,4 +16,5 @@
     padding: 4px;
     color: @color7;
     background-color: @background;
+    margin: 0, 5px, 0, 5px;
 }
