@@ -6,3 +6,4 @@ wofi
 dunst
 nemo
 neovim
+playerctl

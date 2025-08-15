@@ -3,8 +3,8 @@
 @define-color txt @color7;
 @define-color bg @color0;
 @define-color bg2 @color4;
-@define-color bginput @color9;
-@define-color accent @color11;
+@define-color bginput @color0;
+@define-color accent @color10;
 
  * {
     font-family: 'Pangolin', sans-serif;
@@ -15,8 +15,8 @@
  window {
     margin: 0px;
     padding: 10px;
-    border: 1px solid @accent;
-    border-radius: 5px;
+    border: 2px solid @accent;
+    border-radius: 10px;
     background-color: @bg;
 }
 
