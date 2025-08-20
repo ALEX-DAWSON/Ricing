@@ -23,7 +23,7 @@ case $1 in
         cd
         list=~/Ricing/aur-dependencies.txt
 
-        while read -r line; do
+        while read line; do
             $helper -S $line
         done <$list
     ;;
