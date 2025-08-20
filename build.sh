@@ -96,6 +96,10 @@ install() {
     cd &&
     git clone https://github.com/ALEX-DAWSON/dotfiles.git &&
     cd dotfiles &&
+    if [ ! -d "~/.config" ]
+	then
+		mkdir "~/.config"
+	fi
     bash build &&
     cd &&
     yes | sudo pacman -S - < ~/Ricing/dependencies.txt &&
