@@ -1,22 +1,24 @@
+helper=paru
+
 get() {
     cd &&
-    git clone https://aur.archlinux.org/paru.git
+    git clone https://aur.archlinux.org/$helper.git
 }
 
 build() {
-    cd paru &&
+    cd $helper &&
     makepkg -si &&
     cd
 }
 
 update() {
-    cd paru &&
+    cd $helper &&
     git pull &&
     makepkg -si &&
     cd
 }
 
-if [ ! -d ~/paru ]
+if [ ! -d ~/$helper ]
 then
     get &&
     build
