@@ -1,4 +1,5 @@
 get() {
+    cd &&
     git clone https://aur.archlinux.org/paru.git
 }
 
