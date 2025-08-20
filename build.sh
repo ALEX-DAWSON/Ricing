@@ -96,7 +96,7 @@ install() {
     cd &&
     if [ ! -d ~/dotfiles ]
 	then
-        git clone https://github.com/ALEX-DAWSON/dotfiles.git &&
+        git clone https://github.com/ALEX-DAWSON/dotfiles.git
 	fi
     cd dotfiles &&
     if [ ! -d ~/.config ]
