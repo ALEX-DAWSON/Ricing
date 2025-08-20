@@ -19,7 +19,10 @@ folders() {
     while read -r line; do
         if [ ! -d ~/$line ]
         then
+            echo "Made $line folder"
             mkdir ~/$line
+        else
+            echo "$line already exists"
 	    fi
     done <$list
 }
