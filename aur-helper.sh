@@ -18,10 +18,22 @@ update() {
     cd
 }
 
-if [ ! -d ~/$helper ]
-then
-    get &&
-    build
-else 
-    update
-fi
+case $1 in
+    depend)
+        cd
+        list=~/Ricing/aur-dependencies.txt
+
+        while read -r line; do
+            $helper -S $line
+        done <$list
+    ;;
+    *)
+        if [ ! -d ~/$helper ]
+        then
+            get &&
+            build
+        else 
+            update
+        fi
+    ;;
+esac
