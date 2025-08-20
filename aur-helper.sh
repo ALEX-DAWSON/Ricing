@@ -1,21 +1,21 @@
 get() {
-    git clone https://aur.archlinux.org/yay.git
+    git clone https://aur.archlinux.org/paru.git
 }
 
 build() {
-    cd yay &&
+    cd paru &&
     makepkg -si &&
     cd
 }
 
 update() {
-    cd yay &&
+    cd paru &&
     git pull &&
     makepkg -si &&
     cd
 }
 
-if [ ! -d "~/yay" ]
+if [ ! -d "~/paru" ]
 then
     get &&
     build

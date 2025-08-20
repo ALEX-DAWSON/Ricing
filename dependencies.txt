@@ -7,3 +7,5 @@ dunst
 nemo
 neovim
 playerctl
+swww-daemon
+kitty

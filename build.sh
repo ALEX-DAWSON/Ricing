@@ -92,15 +92,33 @@ wofi() {
 	fi
 }
 
+install() {
+    cd &&
+    git clone https://github.com/ALEX-DAWSON/dotfiles.git &&
+    cd dotfiles &&
+    bash build &&
+    cd &&
+    yes | sudo pacman -S - < ~/Ricing/dependencies.txt &&
+    hypr &&
+    waybar &&
+    wallpaper &&
+    wofi
+}
+
 case $1 in
     login) 
         login 
     ;;
+    aur)
+        bash aur-helper.sh
+    ;;
+    install)
+        install
+    ;; 
     *) 
         wallpaper && 
         hypr && 
         waybar &&
         wofi
-        #bash aur-helper.sh 
     ;;
 esac
