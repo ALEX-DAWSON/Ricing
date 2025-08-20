@@ -16,7 +16,7 @@ update() {
     cd
 }
 
-if [ ! -d "~/paru" ]
+if [ ! -d ~/paru ]
 then
     get &&
     build
