@@ -12,6 +12,18 @@ this_hypr_folder=./hyprland
 this_waybar_folder=./waybar
 this_wofi_folder=./wofi
 
+folders() {
+    cd
+    list=~/Ricing/folders.txt
+
+    while read -r line; do
+        if [ ! -d ~/$line ]
+        then
+            mkdir ~/$line
+	    fi
+    done <$list
+}
+
 
 login() {
     read -p "What is your current login manager? [ENTER = gdm]: " old_login_manager 
@@ -94,6 +106,7 @@ wofi() {
 
 install() {
     cd &&
+    folders &&
     if [ ! -d ~/dotfiles ]
 	then
         git clone https://github.com/ALEX-DAWSON/dotfiles.git
@@ -130,6 +143,9 @@ case $1 in
         waybar &&
         wofi
     ;; 
+    folders)
+        folders
+    ;;
     *) 
         wallpaper && 
         hypr && 
