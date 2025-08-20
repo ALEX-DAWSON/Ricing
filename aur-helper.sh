@@ -12,7 +12,7 @@ build() {
 }
 
 update() {
-    cd $helper &&
+    cd ~/$helper &&
     git pull &&
     makepkg -si &&
     cd
