@@ -103,7 +103,7 @@ install() {
 	then
 		mkdir ~/.config
 	fi
-    bash build &&
+    bash build all &&
     cd &&
     yes | sudo pacman -S - < ~/Ricing/dependencies.txt &&
     hypr &&
