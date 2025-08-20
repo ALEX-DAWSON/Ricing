@@ -106,10 +106,14 @@ install() {
     bash build all &&
     cd &&
     yes | sudo pacman -S - < ~/Ricing/dependencies.txt &&
-    hypr &&
-    waybar &&
-    wallpaper &&
-    wofi
+    read -p "What login manager will you use? [Enter = ly]: " login_manager
+    if [ "$login_manager" == "" ]
+    then
+        login_manager=ly
+    fi
+    yes | sudo pacman -S $login_manager &&
+    sudo systemctl enable $login_manager
+    return
 }
 
 case $1 in
@@ -120,7 +124,11 @@ case $1 in
         bash aur-helper.sh
     ;;
     install)
-        install
+        install &&
+        wallpaper && 
+        hypr && 
+        waybar &&
+        wofi
     ;; 
     *) 
         wallpaper && 

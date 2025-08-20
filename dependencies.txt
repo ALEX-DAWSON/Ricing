@@ -1,7 +1,12 @@
 hyprland
 hyprpaper
 hyprpolkitagent
+hyprland-qtutils
 waybar
+wayland
+wayland-docs
+qt5-wayland
+qt6-wayland
 wofi
 dunst
 nemo
@@ -9,3 +14,10 @@ neovim
 playerctl
 swww
 kitty
+foot
+libnotify
+uwsm
+slurp
+xdg-desktop-portal-hyprland
+grim
+cliphist
