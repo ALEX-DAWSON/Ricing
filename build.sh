@@ -94,11 +94,14 @@ wofi() {
 
 install() {
     cd &&
-    git clone https://github.com/ALEX-DAWSON/dotfiles.git &&
-    cd dotfiles &&
-    if [ ! -d "~/.config" ]
+    if [ ! -d ~/dotfiles ]
 	then
-		mkdir "~/.config"
+        git clone https://github.com/ALEX-DAWSON/dotfiles.git &&
+	fi
+    cd dotfiles &&
+    if [ ! -d ~/.config ]
+	then
+		mkdir ~/.config
 	fi
     bash build &&
     cd &&
