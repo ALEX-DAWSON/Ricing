@@ -6,8 +6,9 @@
 
 * {
     font-family: Pangolin, sans-serif;
-    font-size: 18px;
+    font-size: 25px;
     background: transparent;
+    color: @txt;
 }
 
 #custom-launcher,
@@ -18,7 +19,6 @@
 #pulseaudio {
     border-radius: 8px;
     padding: 4px;
-    color: @txt;
     background-color: @bg;
     margin-left: 5px;
     margin-right: 5px;
