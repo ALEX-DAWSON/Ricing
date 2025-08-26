@@ -24,3 +24,4 @@ slurp
 xdg-desktop-portal-hyprland
 grim
 cliphist
+man
