@@ -18,8 +18,10 @@
 #tray,
 #pulseaudio {
     border-radius: 8px;
+    border: 1px solid @accent;
     padding: 4px;
     background-color: @bg;
     margin-left: 5px;
     margin-right: 5px;
+
 }
