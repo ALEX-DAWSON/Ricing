@@ -1,7 +1,7 @@
 @import url("/home/alex/.cache/wal/colors-waybar.css");
 
 @define-color bg @background;
-@define-color txt @color7;
+@define-color txt @color15;
 @define-color accent @color1;
 
 * {
