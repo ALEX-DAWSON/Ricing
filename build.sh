@@ -6,6 +6,7 @@ wallpaper_folder=~/Pictures/Wallpapers
 hypr_folder=~/.config/hypr
 waybar_folder=~/.config/waybar
 wofi_folder=~/.config/wofi
+nvim_folder=~/.config/nvim
 
 this_wallpaper_folder=./Wallpapers
 this_hypr_folder=./hyprland
@@ -107,6 +108,32 @@ wofi() {
 	fi
 }
 
+nvim() {
+    if [ ! -d $nvim_folder ]
+    then
+        echo "Cloning my.nvim config via ssh"
+        git clone git@github.com:ALEX-DAWSON/my.nvim.git $nvim_folder
+    elif [ ! -d $nvim_folder/.git ]
+    then
+        echo "looks like there is already an nvim folder but there is no repository attached to it"
+        read -p "would you like to delete any files in the directory and replace with my.nvim? [y/N] :" input
+       case input in
+           y | Y | yes | Yes | YES)
+                echo "removing contents of $nvim_folder and cloning my.nvim config via ssh"
+                sleep 1
+                rm -rf $nvim_folder
+                git clone git@github.com:ALEX-DAWSON/my.nvim.git $nvim_folder
+           ;;
+           *)
+               echo "Abort mission"
+           ;;
+       esac
+   else
+       cd $nvim_folder
+       git pull
+    fi
+}
+
 install() {
     cd &&
     folders &&
@@ -144,7 +171,8 @@ case $1 in
         wallpaper && 
         hypr && 
         waybar &&
-        wofi
+        wofi &&
+        nvim
     ;; 
     folders)
         folders
