@@ -112,7 +112,7 @@ nvim() {
     if [ ! -d $nvim_folder ]
     then
         echo "Cloning my.nvim config via ssh"
-        git clone git@github.com:ALEX-DAWSON/my.nvim.git $nvim_folder
+        git clone https://github.com/ALEX-DAWSON/my.nvim.git $nvim_folder
     elif [ ! -d $nvim_folder/.git ]
     then
         echo "looks like there is already an nvim folder but there is no repository attached to it"
