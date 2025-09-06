@@ -18,6 +18,7 @@ playerctl
 swww
 kitty
 foot
+firefox
 libnotify
 uwsm
 slurp

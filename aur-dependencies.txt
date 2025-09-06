@@ -1,3 +1,6 @@
 python-pywal16
 waypaper
 neofetch
+colorz
+spicetify
+python-pywalfox

@@ -18,20 +18,19 @@ update() {
     cd
 }
 
-case $1 in
-    depend)
-        cd
-        list=~/Ricing/aur-dependencies.txt
+depend() {
+    cd
+    list=~/Ricing/aur-dependencies.txt
 
-        $helper -S $list
-    ;;
-    *)
-        if [ ! -d ~/$helper ]
-        then
-            get &&
-            build
-        else 
-            update
-        fi
-    ;;
-esac
+    $helper -S $list
+}
+        
+
+if [ ! -d ~/$helper ]
+then
+    get &&
+    build &&
+    depend
+else 
+    update
+fi
