@@ -181,7 +181,6 @@ case $1 in
         wallpaper && 
         hypr && 
         waybar &&
-        wofi &&
-        nvim
+        wofi 
     ;;
 esac
